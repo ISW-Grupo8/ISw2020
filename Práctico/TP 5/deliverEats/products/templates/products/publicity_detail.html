@@ -1,0 +1,32 @@
+{% extends 'products/base_sell.html' %}
+
+{% block app_content %}
+{% load products_tags %}
+{% load crispy_forms_tags %}
+
+<style>
+    .custom-row{
+    min-height: 38vh;
+	height: 100%;
+    }
+</style>
+
+<div class="container border">
+    <div class="row custom-row m-3 d-flex">
+        <div class="col-6 d-flex align-items-center">
+            {% if object.image %}
+                <img class=' d-block w-100' src="/media/{{ object.image }}">
+            {% endif %}
+        </div>
+
+        <div class="col-6 d-flex align-items-start flex-column p-0">
+            <div class="">
+                <h3>{{object.name}}</h3>
+                <div>
+                    {{object.description}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock app_content %}

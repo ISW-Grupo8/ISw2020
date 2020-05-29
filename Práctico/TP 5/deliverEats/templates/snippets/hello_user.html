@@ -1,0 +1,5 @@
+<h5 class="my-0 mr-md-auto font-weight-normal">
+    {% if request.user.is_authenticated %}
+    Hola {{request.user.username|capfirst}}!
+    {% endif %}
+</h5>

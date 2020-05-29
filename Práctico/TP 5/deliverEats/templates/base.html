@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<title>E-Commerce</title>
+	<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="shortcut icon" type="image/png" href="{% static 'product.ico' %}"/>
+
+	{% include 'snippets/bootstrap_css.html' %}
+
+	{% include 'snippets/header.html' %}
+</head>
+
+<body>
+<!-- Body -->
+<style type="text/css">
+	.main{
+		min-height: 80vh;
+		height: 100%;
+	}
+</style>
+
+<div class="main">
+	{% block content %}
+	{% endblock content %}
+</div>
+<!-- End Body -->
+
+{% include 'snippets/footer.html' %}
+
+{% include 'snippets/scripts.html' %}
+
+
+</body>
+
+</html>

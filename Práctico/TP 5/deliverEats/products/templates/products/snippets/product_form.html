@@ -1,0 +1,25 @@
+<!--Formulario del producto-->
+<!--var: form-->
+{% load crispy_forms_tags %}
+
+<div class="row m-auto p-auto">
+  <div class="col-6 m-auto p-auto">
+    {{ form.name|as_crispy_field }}
+  </div>
+  <div class="col-6 m-auto p-auto">
+    {{ form.price|as_crispy_field }}
+  </div>
+
+</div>
+{{ form.description|as_crispy_field }}
+
+<p>
+  {{form.category.label}} &nbsp
+  {% include 'snippets/multiple_choice_field.html' with field=form.category %}
+</p>
+
+<!-- Dropdown que contiene al formset de las imagenes-->
+{% include 'products/snippets/formset_dropdown.html' with formset=formset verbose_name="imagen" verbose_name_plural="imágenes" %}
+<!-- Carousel de imagenes-->
+<h3>Previsualización</h3>
+{% include 'products/snippets/image_carousel.html' with object=object %}

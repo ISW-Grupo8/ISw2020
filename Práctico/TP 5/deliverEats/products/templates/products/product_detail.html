@@ -1,0 +1,39 @@
+{% extends 'products/base_sell.html' %}
+
+{% block app_content %}
+{% load products_tags %}
+{% load crispy_forms_tags %}
+
+<style>
+    .custom-row{
+    min-height: 38vh;
+	height: 100%;
+    }
+</style>
+
+<div class="container border">
+    <div class="row custom-row m-3 d-flex">
+        <div class="col-6 d-flex align-items-center">
+
+            {% include 'products/snippets/image_carousel.html' with object=object %}
+            {% if form.image.value %}
+            <img class='mb-2' src="/media/{{ form.image.value }}" width=420>
+            {% endif %}
+        </div>
+
+        <div class="col-6 d-flex align-items-start flex-column p-0">
+            <div class="">
+                <h3>{{object.name}}</h3>
+                <h5>${{object.price}}</h5>
+                <div>
+                    {{object.description}}
+                </div>
+            </div>
+            {% if form %}
+            <!--Boton de agregar al carro-->
+            {% include 'products/snippets/add_to_cart_form.html' %}
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock app_content %}

@@ -1,0 +1,7 @@
+<!-- Botone para eliminar un objeto -->
+<!-- var: object -->
+{% load custom_tags %}
+
+<form action="{% url 'products:product_remove_form_cart' object.pk %}" method="post">{% csrf_token %}
+    <button class="btn btn-sm btn-danger">Eliminar</button>
+</form>

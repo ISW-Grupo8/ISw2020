@@ -1,0 +1,32 @@
+<!--Formulario de la categoria-->
+<!--var: object-->
+{% load products_tags %}
+
+<!--Elimino el subrayado-->
+<style type="text/css">
+a:link
+{
+text-decoration:none;
+}
+
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-3 col-md-3 col-sm-4  p-1">
+            {% if object.image_set.all.0.image_file %}
+            <a href="{% url object|detail_url object.pk %}">
+            <img class=' d-block w-100' src="/media/{{ object.image_set.all.0.image_file }}">
+            </a>
+            {% endif %}
+
+        </div>
+        <div class="col-9 col-sm-8 ">
+            <a class="text-dark" href="{% url object|detail_url object.pk %}">
+            <h3>{{object.name}}</h3>
+            <h5>{{object.description}}</h5>
+            <h5>${{object.price}}</h5>
+            </a>
+        </div>
+    </div>
+</div>

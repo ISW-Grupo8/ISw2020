@@ -1,0 +1,23 @@
+{% extends 'products/base_sell.html' %}
+
+{% block app_content %}
+{% load static %}
+
+<h1 class="h2 text-normal font-weight-normal">
+    <img width=50 src="{% static 'shopping-cart.ico' %}">
+    Mi Carrito
+</h1>
+<div class="container border px-3 py-3">
+{% include 'products/snippets/product_list.html' with object=object preview_snippet='products/snippets/product_detail_preview.html'  %}
+</div>
+<div class="m-2 h3 text-right">Monto total: ${{ request.user.client.total }}</div>
+
+<!--Boton para comprar productos-->
+<div class="row">
+    <div class="col-md-12 m-auto order-md-1 p-2 text-right">
+        <form action="{% url 'products:buy_products_from_cart' %}" method="post">{% csrf_token %}
+            <button class="btn btn-outline-dark">Comprar productos</button>
+        </form>
+    </div>
+</div>
+{% endblock app_content %}

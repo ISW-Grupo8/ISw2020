@@ -1,0 +1,18 @@
+<!-- Navbar-->
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+
+	{% include 'snippets/hello_user.html' %}
+	{% include 'products/snippets/search_bar.html' with action='products:product_sell_list' %}
+
+	<nav class="my-2 my-md-0 mr-4">
+		<a class="p-2 text-dark" href="{% url 'index' %}">Inicio</a>
+		<!--Opciones de un usuario cliente-->
+		{% include 'snippets/client_header.html' %}
+		<!--Opciones de un usuario staff-->
+		{% include 'snippets/staff_header.html' %}
+		<!--Opciones de la cuenta-->
+		{% include 'snippets/account_header.html' %}
+		<!--Opciones para usuarios no logeados-->
+		{% include 'snippets/login_header.html' %}
+	</nav>
+</div>

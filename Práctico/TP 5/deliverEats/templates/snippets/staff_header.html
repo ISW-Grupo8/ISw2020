@@ -1,0 +1,22 @@
+<!--Opciones de un usuario staff-->
+{% load products_tags %}
+
+{% if request.user.is_staff %}
+
+<div class="btn-group">
+	<button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+			aria-expanded="false">Opciones</button>
+	<div class="dropdown-menu">
+		{% if request.user|has_perm_tag:'products.view_product' %}
+		<a class="dropdown-item" href="{% url 'products:product_list'%}">Productos</a>
+		{% endif %}
+
+		{% if request.user|has_perm_tag:'products.view_category' %}
+		<a class="dropdown-item" href="{% url 'products:category_list'%}">Categorías</a>
+		<a class="dropdown-item" href="{% url 'products:publicity_list'%}">Publicidad</a>
+		{% endif %}
+
+	</div>
+</div>
+
+{% endif %}

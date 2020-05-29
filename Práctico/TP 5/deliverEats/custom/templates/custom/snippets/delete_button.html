@@ -1,0 +1,5 @@
+<!-- Botone para eliminar un objeto -->
+<!-- var: object -->
+{% load custom_tags %}
+
+<a class="btn btn-sm btn-outline-danger" href="{% url object|delete_url object.pk %}">Eliminar</a>

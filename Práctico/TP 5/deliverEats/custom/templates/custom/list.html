@@ -1,0 +1,35 @@
+{% extends 'custom/base_list.html' %}
+
+{% block app_content %}
+{% load crispy_forms_tags %}
+{% load custom_tags %}
+
+<h1 class="h3 text-center font-weight-normal">{{object|verbose_name_plural}}</h1>
+<hr>
+
+{% if object_list %}
+{% if request.user.is_staff %}
+<!-- Pasa la lista de objetos a un formato de tabla con un boton para realizar una accion sobre cada objeto -->
+{% include 'custom/snippets/as_list.html' with object_list=object_list fields=fields button='custom/snippets/delete_button.html' action='update' %}
+{% else %}
+{% include 'custom/snippets/as_list.html' with object_list=object_list fields=fields action='detail' %}
+{% endif %}
+
+{% else %}
+<!--Si no existen objetos se informa con un mensaje-->
+<p class="text-center">No se registraron {{object|verbose_name_plural}}</p>
+{% endif %}
+
+{% endblock app_content %}
+
+
+{% block extra_content %}
+{% if request.user.is_staff %}
+<!--Boton de creacion-->
+<div class="row">
+    <div class="col-md-12 m-auto order-md-1 p-2 text-right">
+        {% include 'custom/snippets/register_button.html' with object=object %}
+    </div>
+</div>
+{% endif %}
+{% endblock extra_content %}

@@ -1,0 +1,6 @@
+<!--Muestra los errores no relacionado con un campo-->
+{% if form.non_field_errors %}
+<div style="color:red;">
+    <p>{{form.non_field_errors}}</p>
+</div>
+{% endif %}

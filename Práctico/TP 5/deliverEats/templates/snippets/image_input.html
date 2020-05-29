@@ -1,0 +1,13 @@
+<!--Muestra un choice field de un ModelChoiceField de un formulario-->
+<!-- var: field -->
+<style>
+.custom-file-text: (
+en: "Browse",
+es: "Elegir"
+);
+</style>
+
+<div class="custom-file">
+  <input type="file" value="{{field.value}}" class="custom-file-input" name="{{field.name}}" id="id_{{field.name}}" lang="es">
+  <label class="custom-file-label" for="id_{{field.name}}">Seleccionar Archivo</label>
+</div>

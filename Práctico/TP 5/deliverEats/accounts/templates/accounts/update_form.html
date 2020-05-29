@@ -1,0 +1,26 @@
+{% extends 'accounts/base.html' %}
+<!--Extiendo el comportamiento de la plantilla de creacion remplazando el formulario por defecto-->
+
+{% block account_content %}
+{% load crispy_forms_tags %}
+
+<h1 class="h3 text-center mb-3 font-weight-normal">Cambiar Cuenta</h1>
+
+<form class="form-signin" method="post">{% csrf_token %}
+
+    {% crispy form %}
+
+    {% include 'accounts/snippets/help_text.html' with help_text=form.helper.help_text %}
+
+    {% include 'products/snippets/success.html' %}
+
+    <button class="btn btn-lg btn-primary btn-block mb-2" type="submit">Guardar Cambios</button>
+
+</form>
+
+
+<div class="d-flex flex-column">
+    <a class="m-auto" href="{% url 'accounts:password_change' %}">Cambiar contraseña</a>
+</div>
+
+{% endblock account_content %}

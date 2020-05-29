@@ -1,0 +1,39 @@
+<!-- Botone para eliminar un objeto -->
+{% load products_tags %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+<style>
+.form-control-custom{
+max-width: 120px;
+width: 100%;
+}
+</style>
+
+<div class="container mt-auto p-0">
+            <!--Agregar al carrito -->
+    {% if request.user|has_perm:"products.product_add_to_shopping_cart" %}
+
+    <form method="post">{% csrf_token %}
+        <div class="d-flex justify-content-between flex-row">
+            <div class="form-control-custom">
+                Cantidad:
+                {{form.quantity|as_crispy_field}}
+            </div>
+
+            <div class="m-auto">
+                <button class="btn btn-outline-secondary  ">
+                    Agregar al carrito
+                    <img width=30 src="{% static 'shopping-cart.ico' %}">
+                </button>
+            </div>
+        </div>
+    </form>
+    {% else %}
+    <button type="button" class="btn btn-outline-secondary ml-auto disabled" aria-label="Left Align">
+        Agregar al carrito
+        <img width=30 src="{% static 'shopping-cart.ico' %}">
+    </button>
+    {% endif %}
+</div>
+

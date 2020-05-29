@@ -1,0 +1,28 @@
+<!-- Dropdown a partir de un formset -->
+<!-- var: formset, verbose_name, verbose_name_plural -->
+{% load crispy_forms_tags %}
+
+  <a class="btn  btn-outline-dark " data-toggle="collapse" href="#collapse" role="button"
+     aria-expanded="false" aria-controls="collapse">
+    Cargar {{verbose_name_plural}}
+  </a>
+
+<div class="collapse" id="collapse">
+  {{ formset.management_form }}
+  {% for f in formset %}
+
+  <p class="text-right m-2">
+    <a class="btn btn-sm btn-outline-dark " data-toggle="collapse" href="#collapse{{forloop.counter}}" role="button"
+       aria-expanded="false" aria-controls="collapse">
+      {{verbose_name}} {{forloop.counter}}
+    </a>
+  </p>
+
+  <div class="collapse" id="collapse{{forloop.counter}}">
+    <hr>
+    <h4>{{verbose_name}} {{forloop.counter}}</h4>
+    {% crispy f %}
+  </div>
+  {% endfor %}
+</div>
+<hr>

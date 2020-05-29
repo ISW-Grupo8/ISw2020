@@ -1,0 +1,33 @@
+<!--Archivo base de los formularios de actualizacion-->
+{% extends 'products/base.html' %}
+
+{% block app_content %}
+
+{% load crispy_forms_tags %}
+{% load products_tags %}
+
+<!-- Elimina el asterisco de los tags    -->
+{% include 'products/snippets/asterisk_field.html' %}
+
+<form class="form-signin" enctype='multipart/form-data' method="post">{% csrf_token %}
+    <h1 class="h3 text-center font-weight-norml">Modificar {{object|verbose_name}}</h1>
+    <hr>
+
+    <!-- Formulario de cada modelo -->
+    {% with type=object|type|lower  %}
+    {% include "products/snippets/"|add:type|add:"_form.html" with form=form %}
+    {% endwith %}
+
+    {% block form_content %}
+
+    {% endblock form_content %}
+
+    <!-- Mensaje de exito -->
+    {% include 'products/snippets/success.html' %}
+
+    <!-- Botones -->
+    {% include 'products/snippets/update_buttons.html' with object=object %}
+
+</form>
+
+{% endblock app_content %}

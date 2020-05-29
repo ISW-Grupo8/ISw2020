@@ -1,0 +1,16 @@
+<!--Opciones de un usuario staff-->
+{% load products_tags %}
+
+{% if request.user.is_authenticated %}
+<div class="btn-group">
+	<button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+			aria-expanded="false">Mi cuenta</button>
+	<div class="dropdown-menu">
+		{% if request.user|has_perm_tag:'products.product_buy' %}
+		<a class="dropdown-item" href="{% url 'products:shopping_history_list' %}">Historial de compras</a>
+		{% endif %}
+		<a class="dropdown-item" href="{% url 'accounts:account_update' %}">Cambiar Cuenta</a>
+		<a class="dropdown-item" href="{% url 'accounts:logout' %}">Cerrar sesion</a>
+	</div>
+</div>
+{% endif %}

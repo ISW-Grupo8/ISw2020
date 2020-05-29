@@ -1,0 +1,10 @@
+<!--Opciones de un usuario staff-->
+{% load products_tags %}
+{% load static %}
+
+{% if request.user|has_perm:"products.product_add_to_shopping_cart" %}
+
+<a class="p-2 text-dark" href="{% url 'products:product_cart' %}">
+    <img width=30 src="{% static 'shopping-cart.ico' %}">
+</a>
+{% endif %}

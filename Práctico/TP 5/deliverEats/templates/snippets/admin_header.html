@@ -1,0 +1,4 @@
+<!--Opciones de un usuario staff-->
+{% if request.user.is_superuser %}
+<a class="p-2 text-dark" href="/admin">Admin</a>
+{% endif %}

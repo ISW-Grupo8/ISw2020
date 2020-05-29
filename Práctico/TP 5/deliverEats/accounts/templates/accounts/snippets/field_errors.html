@@ -1,0 +1,7 @@
+<!--Muestra los errores relacionados a los campos-->
+
+{% for field in form %}
+{% for error in field.errors %}
+<p style="color: red">{{ error }}</p>
+{% endfor %}
+{% endfor %}

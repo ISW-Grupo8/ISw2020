@@ -1,0 +1,7 @@
+<!--Muestra los errores de un campo-->
+
+{% if errors %}
+{% for error in errors %}
+<p style="color: red">{{ error }}</p>
+{% endfor %}
+{% endif %}

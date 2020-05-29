@@ -1,0 +1,13 @@
+{% extends 'products/create_form.html' %}
+<!--Extiendo el comportamiento de la plantilla de creacion remplazando el formulario por defecto-->
+
+{% block form %}
+{% load crispy_forms_tags %}
+
+    {% crispy form %}
+
+    <!-- Muestra en un boton el texto de ayuda disponible    -->
+    {% include 'accounts/snippets/help_text.html' with help_text=form.helper.help_text %}
+
+{% endblock form %}
+

@@ -1,0 +1,36 @@
+{% extends 'custom/base.html' %}
+
+{% block app_content %}
+
+{% load custom_tags %}
+
+<form class="form-signin" method="post">{% csrf_token %}
+  <h1 class="h3 text-center font-weight-normal">Eliminar {{object|verbose_name}}</h1>
+  <hr>
+  <div class="text-center">
+
+    {% if object %}
+    {% if success_message %}
+    <!-- Mensaje de exito -->
+    <p>Se ha eliminado {{pronoun}} {{object|verbose_name|lower}} <strong> {{object.name}} </strong></p>
+
+    <a class="text-dark" href="{% url object|list_url %}">Volver</a>
+
+    {% else %}
+    <!-- Solicita la confirmacion para borrar el objeto -->
+    <div class="container text-center">
+      <h6>Esta seguro que desea eliminar {{pronoun}} {{object|verbose_name|lower}} <strong> {{object.name}} </strong> ?</h6>
+    </div>
+
+    <div class="container text-right">
+      <button class="btn mb-2 btn-md btn-danger text-right" type="submit">Eliminar</button>
+      <a class="text-dark" href="{% url object|list_url %}">Volver</a>
+
+    </div>
+    {% endif %}
+    {% endif %}
+
+  </div>
+</form>
+
+{% endblock app_content %}

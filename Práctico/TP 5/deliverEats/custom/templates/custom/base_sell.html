@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+{% load custom_tags %}
+
+<style>
+    .container{
+        max-width: 1200px;
+        width: 100%;
+    }
+</style>
+<div class="container p-0">
+    <div class="row">
+
+        <div class="col-lg-9 col-md-10 mx-auto order-md-1 p-4">
+                {% block app_content %}
+
+                {% endblock app_content %}
+        </div>
+        <!-- Muestra la publicidad -->
+        {% if not user.is_staff %}
+        <div class="col-lg-3 col-md-4 mx-auto order-md-1 p-4">
+            <img class=' d-block w-100' src="/media/{% show_publicity %}">
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+
+{% endblock content %}

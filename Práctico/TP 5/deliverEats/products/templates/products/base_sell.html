@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+{% load products_tags %}
+
+<style>
+    .container{
+        max-width: 1200px;
+        width: 100%;
+    }
+</style>
+<div class="container p-0">
+    <div class="row">
+
+        <div class="col-lg-9 col-md-10 mx-auto order-md-1 p-4">
+                {% block app_content %}
+
+                {% endblock app_content %}
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

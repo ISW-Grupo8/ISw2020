@@ -1,0 +1,11 @@
+<!--Muestra un choice field de un MultipleModelChoiceField de un formulario-->
+<!-- var: field, inital -->
+
+<select class="selectpicker mb-3" data-content="{{field.name}}" data-size="5" data-live-search="true" multiple title="Elija las categorias" name="{{field.name}}" id="id_{{field.name}}">
+    <!-- Muestra cada opcion del campo pasado por parametro -->
+    {% for option in field %}
+    {{option}}
+    {% endfor %}
+</select>
+
+{% include 'snippets/especific_field_errors.html' with errors=field.errors %}

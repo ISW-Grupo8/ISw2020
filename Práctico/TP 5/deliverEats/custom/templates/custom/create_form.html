@@ -1,0 +1,30 @@
+<!--Archivo base de los formularios de registro-->
+{% extends 'custom/base.html' %}
+
+{% block app_content %}
+
+{% load crispy_forms_tags %}
+{% load custom_tags %}
+
+<!-- Elimina el asterisco de los tags    -->
+{% include 'custom/snippets/asterisk_field.html' %}
+
+
+<form class="form-signin" enctype='multipart/form-data' method="post">{% csrf_token %}
+    <h1 class="h3 text-center font-weight-normal">Registrar {{object|verbose_name}}</h1>
+    <hr>
+
+    {% block form %}
+    <!-- Formulario de cada modelo -->
+    {% include object|form with form=form %}
+    {% endblock form %}
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Registrar</button>
+</form>
+
+{% endblock app_content %}
+
+    <!-- Formulario de cada modelo -->
+    {% with type=object|type|lower  %}
+    {% include "custom/forms/"|add:type|add:"_form.html" with form=form %}
+    {% endwith %}

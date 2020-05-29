@@ -1,0 +1,15 @@
+<!-- Muestra los mensaje de ayuda de todos los campos-->
+{% for help in help_text %}
+
+<div style="padding-bottom: 8px; padding-left: 8px;" >
+    <a class="btn btn-sm bg-light mx-auto"  data-toggle="collapse" href="#collapse_help" role="button" aria-expanded="false" aria-controls="collapse_help">
+        <small style="color: grey;">Ayuda</small>
+    </a>
+    <div class="collapse" id="collapse_help">
+        <small style="color: grey;">{{help|safe}}</small>
+    </div>
+
+</div>
+
+
+{% endfor %}

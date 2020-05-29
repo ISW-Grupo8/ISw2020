@@ -1,0 +1,20 @@
+<!-- Botone para eliminar un objeto -->
+<!-- var: action -->
+<style>
+.search-bar{
+max-width: 350px;
+width: 100%;
+}
+</style>
+
+<!--Barra de busqueda-->
+<div class="search-bar mt-sm-2 mx-auto p-0 mb-3">
+    <form action="{% url action %}" method="get">
+        <input type="text" class="form-control" name="q" id="id_q" placeholder="Buscar por nombre descripcion y categoria...">
+    </form>
+</div>
+
+<!--Script que actualiza el valor de la barra de busqueda-->
+<script type="text/javascript">
+    document.getElementById("id_q").value = "{{query}}"
+</script>

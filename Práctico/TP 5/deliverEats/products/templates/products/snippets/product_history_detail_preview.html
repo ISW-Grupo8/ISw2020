@@ -1,0 +1,33 @@
+<!--Vista del detalle de producto-->
+<!--var: object-->
+{% load products_tags %}
+
+<!--Elimino el subrayado-->
+<style type="text/css">
+a:link
+{
+text-decoration:none;
+}
+
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-3 col-md-3 col-sm-4  p-1">
+            {% if object.product.image_set.all.0.image_file %}
+            <a href="{% url object.product|detail_url object.product.pk %}">
+                <img class=' d-block w-100' src="/media/{{ object.product.image_set.all.0.image_file }}">
+            </a>
+            {% endif %}
+
+        </div>
+        <div class="col-8 col-sm-7 ">
+            <a class="text-dark" href="{% url object.product|detail_url object.product.pk %}">
+                <h3>{{object.product.name}}</h3>
+                <h5>${{object.product.price}}</h5>
+                <h5>Cantidad: {{object.quantity}}</h5>
+                <h5>Total: ${{object.total}}</h5>
+            </a>
+        </div>
+    </div>
+</div>

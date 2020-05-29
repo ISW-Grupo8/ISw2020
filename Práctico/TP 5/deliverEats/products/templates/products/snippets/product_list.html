@@ -1,0 +1,20 @@
+<!--Formulario de la categoria-->
+<!--var: object, preview_snippet -->
+{% load products_tags %}
+
+{% if object_list %}
+
+{% for object in object_list %}
+<!--Muestra la preview de cada objeto-->
+
+{% if forloop.counter != 1 %}
+<hr>
+{% endif %}
+{% include preview_snippet with object=object %}
+
+{% endfor %}
+
+{% else %}
+<!--Si no existen objetos se informa con un mensaje-->
+<p class="text-center h5 p-5">No agregaron productos al carrito</p>
+{% endif %}

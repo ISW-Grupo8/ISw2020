@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+
+<div class="container">
+    <div class="row ">
+        <div class="col-md-12 mx-auto border order-md-1 p-4">
+            {% block app_content %}
+            {% endblock app_content %}
+        </div>
+    </div>
+    <div class="row text-right">
+    </div>
+        {% block extra_content %}
+        {% endblock extra_content %}
+
+</div>
+
+{% endblock content %}

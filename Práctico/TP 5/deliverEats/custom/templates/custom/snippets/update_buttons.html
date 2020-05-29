@@ -1,0 +1,8 @@
+<!-- Botones del formulario de actualizacion -->
+<!-- var: object -->
+{% load custom_tags %}
+
+<div class="d-flex justify-content-between py-1 px-3 flex-row">
+    <button class="btn btn-md btn-primary btn-right" type="submit">Guardar</button>
+    <a class="btn btn-md btn-danger" href="{% url object|delete_url object.pk %}">Eliminar</a>
+</div>

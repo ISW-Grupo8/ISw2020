@@ -1,0 +1,12 @@
+<!--Muestra un choice field de un ModelChoiceField de un formulario-->
+<!-- var: field -->
+
+<select class="form-control mb-2" name="{{field.name}}" id="id_{{field.name}}">
+    <!-- Muestra cada opcion del campo pasado por parametro -->
+    {% for option in field %}
+    {{option}}
+    {% endfor %}
+
+</select>
+
+{% include 'snippets/especific_field_errors.html' with errors=field.errors %}

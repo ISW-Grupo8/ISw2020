@@ -1,0 +1,13 @@
+{% extends 'products/base_sell.html' %}
+
+{% block app_content %}
+{% load static %}
+
+<h1 class="h2 text-normal font-weight-normal">
+    Historial de compras
+</h1>
+<div class="container border px-3 py-3">
+{% include 'products/snippets/product_list.html' with object=object preview_snippet='products/snippets/product_history_detail_preview.html'  %}
+</div>
+
+{% endblock app_content %}

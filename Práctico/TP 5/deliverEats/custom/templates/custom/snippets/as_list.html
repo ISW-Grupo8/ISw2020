@@ -1,0 +1,55 @@
+<!-- Genera la template para mostrar como tabla un objeto-->
+<!-- var; object_list, fields, button, action-->
+{% load crispy_forms_tags %}
+{% load custom_tags %}
+
+{% if object_list %}
+<div class="container mb-2">
+    <table class="table">
+        <thead>
+        <tr>
+            <!-- Cabecera de la tabla -->
+            {% for field in fields %}
+            <!-- Obtiene el verbose_field name de los campos utilizando el primer objeto de la lista -->
+            <th scope="col">{% get_verbose_field_name object_list.0 field %}</th>
+            {% endfor %}
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Cuerpo de la tabla-->
+        {% for obj in object_list %}
+        <tr>
+            {% for field in fields %}
+            <td>
+                <!-- Link para realizar un accion sobre el objeto -->
+                {% if action %}
+                <a class="text-dark" href="{% url object|get_redirect:action obj.pk %}">
+                    {{obj|field:field|safe}}
+                </a>
+                {% else %}
+                <h6 class="text-dark" >{{obj|field:field|safe}} </h6>
+                {% endif %}
+            </td>
+            {% endfor %}
+
+            <td>
+                <!-- Boton que realiza alguna accion sobre el objeto -->
+                {% if button %}
+                <div class="text-right m-auto">
+                    {% include button with object=obj %}
+                </div>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% else %}
+
+{% if empty_list_msg %}
+<p class="text-center">{{empty_list_msg}}</p>
+{% endif %}
+
+{% endif %}
