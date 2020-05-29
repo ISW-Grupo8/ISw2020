@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# regla_de_nombrado direccion nombre(opcional)
+
+id='ISW'
+
+if [ "$1" != "" ]; then
+	if [ "$2" != "" ]; then
+		direccion=$1
+		echo direccion		
+		ext=${direccion##*.}
+		if [ "$ext" != "" ]; then
+			nombre=$id\_${2}\.$ext
+		fi
+	else
+		nombre=$id\_${1}
+	fi
+	mv ${1} ${nombre}
+	echo -e "Renombrado: " $nombre
+fi
+
+
+
