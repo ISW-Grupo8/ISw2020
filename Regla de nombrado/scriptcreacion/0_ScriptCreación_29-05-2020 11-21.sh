@@ -1,0 +1,13 @@
+echo -n "Ingrese el nombre del archivo: " 
+read nombre
+echo -n "Ingrese la extensión: "
+read ext 
+id=$(echo $(find ../../ -type f | wc -l))
+
+fecha=$(date +'%d-%m-%Y %H-%M')
+nombredef=$id\_$nombre\_$fecha\.$ext
+IFS='
+'
+touch $nombredef
+echo -e "\nArchivo creado con éxito en: " $(pwd)
+
