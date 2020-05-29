@@ -1,4 +1,4 @@
-#Trabajos conceptuales
+# Trabajos conceptuales
 
 ## TRABAJO CONCEPTUAL 1: VIDEO EXPLICATIVO
 ## TRABAJO 2: PÓSTER CIENTÍFICO
