@@ -1,1 +1,4 @@
-Agregar bibliografia utilizada aca.
+https://innolution.com/essential-scrum/table-of-contents/chapter-18-release-planning-longer-term-planning
+https://flutter.dev 
+https://www.projectmanagement.com/pdf/releaseplanningguide.pdf
+https://www.scrum-institute.org/Release_Planning.php
